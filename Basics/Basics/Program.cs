@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Basics.model;
 
 namespace Basics {
 
     class Program {
 
         static void Main(string[] args) {
-            Console.WriteLine("Hello World!");
+            // GetStartedMain getStartedMain = new GetStartedMain();
+            // getStartedMain.Main();
+
         }
 
     }

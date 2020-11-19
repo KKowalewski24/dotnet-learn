@@ -1,4 +1,4 @@
-﻿namespace Basics.model {
+﻿namespace Basics.GetStarted {
 
     public class Point<T1, T2> {
 

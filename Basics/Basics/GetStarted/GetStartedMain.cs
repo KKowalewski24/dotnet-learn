@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Basics.model {
+namespace Basics.GetStarted {
 
     public class GetStartedMain {
 

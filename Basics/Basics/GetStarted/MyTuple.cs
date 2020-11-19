@@ -1,4 +1,4 @@
-﻿namespace Basics.model {
+﻿namespace Basics.GetStarted {
 
     public class MyTuple {
 

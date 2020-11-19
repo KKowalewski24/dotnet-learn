@@ -1,14 +1,14 @@
-﻿namespace Basics.GetStarted {
+﻿namespace Basics.Tutorials {
 
-    public class Human {
+    public class TutorialsMain {
 
         /*------------------------ FIELDS REGION ------------------------*/
 
         /*------------------------ METHODS REGION ------------------------*/
-        public void Calculate() {
+        public void Main() {
 
         }
-
+        
     }
 
 }

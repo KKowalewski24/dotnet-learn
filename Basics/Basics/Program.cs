@@ -1,4 +1,5 @@
-﻿using Basics.model;
+﻿using Basics.GetStarted;
+using Basics.Tutorials;
 
 namespace Basics {
 
@@ -8,6 +9,8 @@ namespace Basics {
             // GetStartedMain getStartedMain = new GetStartedMain();
             // getStartedMain.Main();
 
+            TutorialsMain tutorialsMain = new TutorialsMain();
+            tutorialsMain.Main();
         }
 
     }

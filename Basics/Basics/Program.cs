@@ -1,16 +1,17 @@
-﻿using Basics.GetStarted;
+﻿using System.Threading.Tasks;
+using Basics.GetStarted;
 using Basics.Tutorials;
 
 namespace Basics {
 
     class Program {
 
-        static void Main(string[] args) {
+        static async Task Main(string[] args) {
             // GetStartedMain getStartedMain = new GetStartedMain();
             // getStartedMain.Main();
 
             TutorialsMain tutorialsMain = new TutorialsMain();
-            tutorialsMain.Main();
+            await tutorialsMain.Main();
         }
 
     }

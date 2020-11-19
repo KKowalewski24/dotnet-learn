@@ -11,7 +11,8 @@
         }
 
         public IntegerPoint(int x, int y, int sum)
-            : base(x, y) {
+            // This is the way to call another ctor in current class
+            : this(x, y) {
             Sum = sum;
         }
 

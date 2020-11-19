@@ -18,6 +18,12 @@ namespace Basics.Tutorials {
         public async Task Main() {
             List<Repository> repositories = await ProcessRepositories();
             repositories.ToList().ForEach(Console.WriteLine);
+
+            Shape shape = new Square(25);
+            Console.WriteLine(((Square) shape).Area);
+            Console.WriteLine(((Square) shape).Diagonal);
+            Console.WriteLine(((Square) shape).Perimeter);
+            Console.WriteLine(((Square) shape).Side);
         }
 
         private async Task<List<Repository>> ProcessRepositories() {

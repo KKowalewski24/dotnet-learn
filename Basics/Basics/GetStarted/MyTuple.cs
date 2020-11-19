@@ -4,7 +4,7 @@
 
         /*------------------------ FIELDS REGION ------------------------*/
         (double, int) tup;
-        
+
         /*------------------------ METHODS REGION ------------------------*/
         public MyTuple((double, int) tup) {
             this.tup = tup;
@@ -17,4 +17,3 @@
     }
 
 }
-

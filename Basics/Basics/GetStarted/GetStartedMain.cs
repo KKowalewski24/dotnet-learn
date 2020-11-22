@@ -26,6 +26,8 @@ namespace Basics.GetStarted {
             int j = 2;
             Swap(ref i, ref j);
             Console.WriteLine($"{i} {j}");
+            Out(out int number);
+            Console.WriteLine($"number: {number}");
 
             Sample(1, 2, 3, 45, 45, "78");
 
@@ -39,6 +41,10 @@ namespace Basics.GetStarted {
 
         private void Sample(params object[] args) {
             args.ToList().ForEach((it) => Console.WriteLine(it));
+        }
+
+        private void Out(out int num) {
+            num = 2;
         }
 
         private void Swap(ref int x, ref int y) {

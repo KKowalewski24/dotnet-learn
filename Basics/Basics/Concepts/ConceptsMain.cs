@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using SampleLibrary;
 
 namespace Basics.Concepts {
@@ -13,6 +15,19 @@ namespace Basics.Concepts {
             // PartialUsage();
             // TupleUsage();
             // InterfaceDefaultImplUsage();
+            yieldUsage().ToList().ForEach((it) => Console.Write(it + " "));
+        }
+
+        private IEnumerable<int> yieldUsage() {
+            const int iterationNumber = 10;
+            for (int i = 0; i < iterationNumber; i++) {
+                yield return i;
+            }
+        }
+
+        private void OptionalParameters(int required, int optional = default,
+                                        string description = "ABC") {
+
         }
 
         private static void InterfaceDefaultImplUsage() {
@@ -22,7 +37,7 @@ namespace Basics.Concepts {
             control.Paint();
             var surface = sample as IControl;
             surface.Paint();
-            
+
             // Second Approach
             InterfaceClass sample1 = new InterfaceClass();
             IControl control1 = sample1;

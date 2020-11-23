@@ -3,15 +3,17 @@
     public class MyTuple {
 
         /*------------------------ FIELDS REGION ------------------------*/
-        (double, int) tup;
+        private double number;
+        private string text;
 
         /*------------------------ METHODS REGION ------------------------*/
-        public MyTuple((double, int) tup) {
-            this.tup = tup;
+        public MyTuple(double number, string text) {
+            this.number = number;
+            this.text = text;
         }
 
         public override string ToString() {
-            return $"{nameof(tup)}: {tup}";
+            return $"{nameof(number)}: {number}, {nameof(text)}: {text}";
         }
 
     }

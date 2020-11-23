@@ -5,9 +5,9 @@ using Basics.Tutorials;
 
 namespace Basics {
 
-    class Program {
+    public class Program {
 
-        static async Task Main(string[] args) {
+        public static async Task Main(string[] args) {
             // GetStartedMain getStartedMain = new GetStartedMain();
             // getStartedMain.Main();
 

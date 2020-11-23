@@ -20,7 +20,7 @@ namespace Basics.GetStarted {
             Console.WriteLine(Type.Open);
             Console.WriteLine(Type.Close.ToString());
 
-            Console.WriteLine(new MyTuple((1.5, 2)));
+            Console.WriteLine(new MyTuple(1.5, "abc"));
 
             int i = 1;
             int j = 2;

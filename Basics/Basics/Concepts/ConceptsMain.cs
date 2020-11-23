@@ -11,6 +11,28 @@ namespace Basics.Concepts {
         public void Main() {
             // LibraryUsage();
             // PartialUsage();
+            // TupleUsage();
+            // InterfaceDefaultImplUsage();
+        }
+
+        private static void InterfaceDefaultImplUsage() {
+            // First Approach
+            var sample = new InterfaceClass();
+            var control = sample as IControl;
+            control.Paint();
+            var surface = sample as IControl;
+            surface.Paint();
+            
+            // Second Approach
+            InterfaceClass sample1 = new InterfaceClass();
+            IControl control1 = sample1;
+            control1.Paint();
+            ISurface surface2 = sample1;
+            surface2.Paint();
+        }
+
+        private void TupleUsage() {
+
             (string city, int pop, double size) = QueryCityData("New York City");
             Console.WriteLine(city);
             Console.WriteLine(pop);

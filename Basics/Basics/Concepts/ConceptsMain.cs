@@ -15,10 +15,19 @@ namespace Basics.Concepts {
             // PartialUsage();
             // TupleUsage();
             // InterfaceDefaultImplUsage();
-            yieldUsage().ToList().ForEach((it) => Console.Write(it + " "));
+            // YieldUsage().ToList().ForEach((it) => Console.Write(it + " "));
+            // PropertiesUsage();
         }
 
-        private IEnumerable<int> yieldUsage() {
+        private void PropertiesUsage() {
+            Properties properties = new Properties();
+            properties.StringList.ToList().ForEach((it) => Console.WriteLine(it));
+            properties.StringList.Add("different new word");
+            Console.WriteLine();
+            properties.StringList.ToList().ForEach((it) => Console.WriteLine(it));
+        }
+
+        private IEnumerable<int> YieldUsage() {
             const int iterationNumber = 10;
             for (int i = 0; i < iterationNumber; i++) {
                 yield return i;

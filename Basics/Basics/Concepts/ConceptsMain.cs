@@ -16,9 +16,10 @@ namespace Basics.Concepts {
             // TupleUsage();
             // InterfaceDefaultImplUsage();
             // YieldUsage().ToList().ForEach((it) => Console.Write(it + " "));
+            // GetSingleDigitNumbers().ToList().ForEach((it) => { Console.Write($"{it} "); });
             // PropertiesUsage();
-            Discard discard = new Discard();
-            discard.DisplayTuple();
+            // Discard discard = new Discard();
+            // discard.DisplayTuple();
         }
 
         private void PropertiesUsage() {
@@ -27,6 +28,20 @@ namespace Basics.Concepts {
             properties.StringList.Add("different new word");
             Console.WriteLine();
             properties.StringList.ToList().ForEach((it) => Console.WriteLine(it));
+        }
+
+        private IEnumerable<int> GetSingleDigitNumbers() {
+            int index = 0;
+            while (index < 10) {
+                yield return index++;
+            }
+
+            yield return 50;
+
+            index = 100;
+            while (index < 110) {
+                yield return index++;
+            }
         }
 
         private IEnumerable<int> YieldUsage() {

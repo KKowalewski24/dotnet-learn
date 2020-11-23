@@ -17,6 +17,8 @@ namespace Basics.Concepts {
             // InterfaceDefaultImplUsage();
             // YieldUsage().ToList().ForEach((it) => Console.Write(it + " "));
             // PropertiesUsage();
+            Discard discard = new Discard();
+            discard.DisplayTuple();
         }
 
         private void PropertiesUsage() {

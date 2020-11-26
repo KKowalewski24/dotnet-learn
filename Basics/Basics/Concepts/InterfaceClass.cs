@@ -7,8 +7,6 @@
         int ISurface.Type { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        
-        
         // void IControl.Paint() {
         //     throw new System.NotImplementedException();
         // }

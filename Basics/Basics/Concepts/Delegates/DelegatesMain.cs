@@ -21,6 +21,24 @@ namespace Basics.Concepts.Delegates {
 
             LoggerMethodsExamples();
             FileLoggerUsage();
+            EventsUsage();
+        }
+
+        /// <summary>
+        /// I don't know why but it works weird
+        /// </summary>
+        private static void EventsUsage() {
+            int filesFound = 0;
+            EventHandler<FileFoundArgs> onFileFound = (sender, eventArgs) => {
+                Console.WriteLine(eventArgs.FoundFile);
+                filesFound++;
+
+            };
+
+            FileSearcher fileSearcher = new FileSearcher();
+            fileSearcher.fileFound += onFileFound;
+            fileSearcher.Search("/", ".cs");
+            Console.WriteLine($"filesFound: {filesFound}");
         }
 
         private static void FileLoggerUsage() {

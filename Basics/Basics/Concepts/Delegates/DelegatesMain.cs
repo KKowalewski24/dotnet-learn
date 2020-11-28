@@ -19,7 +19,7 @@ namespace Basics.Concepts.Delegates {
 
             DisplaySubtractedNumbers((num1, num2) => num1 - num2, 50, 10);
 
-            DelegatesExamples();
+            LoggerMethodsExamples();
             FileLoggerUsage();
         }
 
@@ -32,8 +32,12 @@ namespace Basics.Concepts.Delegates {
             );
         }
 
-        private static void DelegatesExamples() {
+        private static void LoggerMethodsExamples() {
             Logger.WriteMessage += LoggingMethods.LogToConsole;
+            Logger.LogMessage(Severity.Information, nameof(DelegatesMain), "abc");
+            Logger.LogMessage(Severity.Critical, nameof(DelegatesMain), "cde");
+
+            Logger.WriteMessage += LoggingMethods.LogToFile;
             Logger.LogMessage(Severity.Information, nameof(DelegatesMain), "abc");
             Logger.LogMessage(Severity.Critical, nameof(DelegatesMain), "cde");
         }

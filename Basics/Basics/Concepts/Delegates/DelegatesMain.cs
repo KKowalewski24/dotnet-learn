@@ -18,6 +18,24 @@ namespace Basics.Concepts.Delegates {
             }
 
             DisplaySubtractedNumbers((num1, num2) => num1 - num2, 50, 10);
+
+            DelegatesExamples();
+            FileLoggerUsage();
+        }
+
+        private static void FileLoggerUsage() {
+            FileLogger fileLogger = new FileLogger("sample.txt");
+            Logger.LogMessage(
+                Severity.Critical,
+                nameof(DelegatesMain),
+                "sample text to file"
+            );
+        }
+
+        private static void DelegatesExamples() {
+            Logger.WriteMessage += LoggingMethods.LogToConsole;
+            Logger.LogMessage(Severity.Information, nameof(DelegatesMain), "abc");
+            Logger.LogMessage(Severity.Critical, nameof(DelegatesMain), "cde");
         }
 
         private int Add(int num1, int num2) {

@@ -13,13 +13,26 @@ namespace Basics.Concepts.Linq {
             const int scoreThreshold = 80;
             int[] scores = {97, 92, 81, 60};
 
+            int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+            string[] words = {"a", "b", "c", "d", "e", "f", "g", "h", "i"};
+
+            IList<Country> countries = new List<Country> {
+                new Country("Germany", 101),
+                new Country("Poland", 102),
+                new Country("Austria", 103),
+                new Country("Switzerland", 104)
+            };
+
             QueryWithoutTypeConversion(scores, scoreThreshold);
             QueryWithTypeConversion(scores, scoreThreshold);
             QuerySingleData(scores, scoreThreshold);
             MethodApproach(scores, scoreThreshold);
+            MultipleDataSources(numbers, words);
+            GroupUsage(countries);
+            NewTypeUsage(countries);
         }
 
-        private static void QueryWithoutTypeConversion(int[] scores, int scoreThreshold) {
+        private void QueryWithoutTypeConversion(int[] scores, int scoreThreshold) {
             IEnumerable<int> scoresQuery =
                 from score in scores
                 where score > scoreThreshold
@@ -29,7 +42,7 @@ namespace Basics.Concepts.Linq {
             Console.WriteLine();
         }
 
-        private static void QueryWithTypeConversion(int[] scores, int scoreThreshold) {
+        private void QueryWithTypeConversion(int[] scores, int scoreThreshold) {
             IEnumerable<string> scoresQuery =
                 from score in scores
                 where score > scoreThreshold
@@ -38,7 +51,7 @@ namespace Basics.Concepts.Linq {
             scoresQuery.ToList().ForEach(Console.WriteLine);
         }
 
-        private static void QuerySingleData(int[] scores, int scoreThreshold) {
+        private void QuerySingleData(int[] scores, int scoreThreshold) {
             int scoresCount = (
                 from score in scores
                 where score > scoreThreshold
@@ -48,10 +61,40 @@ namespace Basics.Concepts.Linq {
             Console.WriteLine(scoresCount);
         }
 
-        private static void MethodApproach(int[] scores, int scoreThreshold) {
+        private void MethodApproach(int[] scores, int scoreThreshold) {
             IEnumerable<int> results = scores.Where((score) => score > scoreThreshold);
             results.ToList().ForEach((score) => Console.Write($"{score} "));
             Console.WriteLine();
+        }
+
+        private void MultipleDataSources(int[] numbers, string[] words) {
+            // Remember that this produce - Cartesian product
+            IEnumerable<string> result =
+                from number in numbers
+                from word in words
+                select word;
+
+            result.ToList().ForEach((it) => { Console.Write(it + " "); });
+            Console.WriteLine();
+        }
+
+        private void GroupUsage(IEnumerable<Country> countries) {
+            var queryCountryGroups =
+                from country in countries
+                orderby country.PostalCode descending
+                group country by country.Name;
+            queryCountryGroups.ToList().ForEach((country) => Console.Write($"{country.Key} "));
+            Console.WriteLine();
+        }
+
+        private void NewTypeUsage(IEnumerable<Country> countries) {
+            var queryNameAndPostalCode =
+                from country in countries
+                select new {country.Name, country.PostalCode};
+
+            queryNameAndPostalCode.ToList().ForEach((item) => {
+                Console.WriteLine($"Name: {item.Name}, Code: {item.PostalCode}");
+            });
         }
 
     }

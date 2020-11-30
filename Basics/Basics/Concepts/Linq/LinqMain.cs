@@ -30,6 +30,7 @@ namespace Basics.Concepts.Linq {
             MultipleDataSources(numbers, words);
             GroupUsage(countries);
             NewTypeUsage(countries);
+            LetUsage();
         }
 
         private void QueryWithoutTypeConversion(int[] scores, int scoreThreshold) {
@@ -95,6 +96,21 @@ namespace Basics.Concepts.Linq {
             queryNameAndPostalCode.ToList().ForEach((item) => {
                 Console.WriteLine($"Name: {item.Name}, Code: {item.PostalCode}");
             });
+        }
+
+        private void LetUsage() {
+            string[] names = {
+                "Svetlana Omelchenko", "Claire O'Donnell", "Sven Mortensen", "Cesar Garcia"
+            };
+
+            IEnumerable<string> queryFirstNames =
+                from name in names
+                let firstName = name.Split(" ")[0]
+                select firstName;
+
+            for (int index = 0; index < queryFirstNames.Count(); index++) {
+                Console.WriteLine($"{queryFirstNames.ToList()[index]}, index: {index}");
+            }
         }
 
     }

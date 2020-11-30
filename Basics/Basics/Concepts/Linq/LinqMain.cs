@@ -42,6 +42,7 @@ namespace Basics.Concepts.Linq {
             // GroupByRange();
             // QueryNestedGroups();
             // new FilterQuery().Usage(_studentsList.Students);
+            new JoinQuery().Usage();
         }
 
         private void QueryNestedGroups() {

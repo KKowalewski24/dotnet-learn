@@ -40,8 +40,8 @@ namespace Basics.Concepts.Linq {
             // GroupBySingleProperty();
             // GroupBySubstring();
             // GroupByRange();
-            QueryNestedGroups();
-
+            // QueryNestedGroups();
+            // new FilterQuery().Usage(_studentsList.Students);
         }
 
         private void QueryNestedGroups() {

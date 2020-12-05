@@ -37,6 +37,14 @@ namespace Basics.GetStarted {
             numbers.Add(1);
 
             numbers.ToList().ForEach((it) => Console.WriteLine(it));
+
+            string str1 = "abc";
+            string str2 = "abc";
+            Console.WriteLine(str1.Equals(str2));
+            Console.WriteLine(str1 == str2);
+            Console.WriteLine(String.Compare(str1, str2));
+            StrRef(ref str1);
+            Console.WriteLine(str1.Equals(str2));
         }
 
         private void Sample(params object[] args) {
@@ -51,6 +59,10 @@ namespace Basics.GetStarted {
             int temp = x;
             x = y;
             y = temp;
+        }
+
+        private void StrRef(ref string str) {
+            str = "cde";
         }
 
     }

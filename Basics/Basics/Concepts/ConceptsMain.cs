@@ -13,16 +13,16 @@ namespace Basics.Concepts {
 
         /*------------------------ METHODS REGION ------------------------*/
         public void Main() {
-            // LibraryUsage();
-            // PartialUsage();
-            // TupleUsage();
-            // InterfaceDefaultImplUsage();
-            // YieldUsage().ToList().ForEach((it) => Console.Write(it + " "));
-            // GetSingleDigitNumbers().ToList().ForEach((it) => { Console.Write($"{it} "); });
-            // PropertiesUsage();
-            // Discard discard = new Discard();
-            // discard.DisplayTuple();
-            // new DelegatesMain().Main();
+            LibraryUsage();
+            PartialUsage();
+            TupleUsage();
+            InterfaceDefaultImplUsage();
+            YieldUsage().ToList().ForEach((it) => Console.Write(it + " "));
+            GetSingleDigitNumbers().ToList().ForEach((it) => { Console.Write($"{it} "); });
+            PropertiesUsage();
+            Discard discard = new Discard();
+            discard.DisplayTuple();
+            new DelegatesMain().Main();
             new LinqMain().Main();
         }
 

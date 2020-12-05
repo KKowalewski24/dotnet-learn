@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Basics.Concepts.Delegates;
 using Basics.Concepts.Linq;
 using SampleLibrary;
 
@@ -23,7 +22,7 @@ namespace Basics.Concepts {
             // Discard discard = new Discard();
             // discard.DisplayTuple();
             // new DelegatesMain().Main();
-            new LinqMain().Main();
+            // new LinqMain().Main();
         }
 
         private void PropertiesUsage() {

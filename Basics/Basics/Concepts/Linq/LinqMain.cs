@@ -24,24 +24,24 @@ namespace Basics.Concepts.Linq {
                 new Country("Switzerland", 104)
             };
 
-            // QueryPlayground queryPlayground = new QueryPlayground();
-            // queryPlayground.QueryWithoutTypeConversion(scores, scoreThreshold);
-            // queryPlayground.QueryWithTypeConversion(scores, scoreThreshold);
-            // queryPlayground.QuerySingleData(scores, scoreThreshold);
-            // queryPlayground.MethodApproach(scores, scoreThreshold);
-            // queryPlayground.MultipleDataSources(numbers, words);
-            // queryPlayground.GroupUsage(countries);
-            // queryPlayground.NewTypeUsage(countries);
-            // queryPlayground.LetUsage();
+            QueryPlayground queryPlayground = new QueryPlayground();
+            queryPlayground.QueryWithoutTypeConversion(scores, scoreThreshold);
+            queryPlayground.QueryWithTypeConversion(scores, scoreThreshold);
+            queryPlayground.QuerySingleData(scores, scoreThreshold);
+            queryPlayground.MethodApproach(scores, scoreThreshold);
+            queryPlayground.MultipleDataSources(numbers, words);
+            queryPlayground.GroupUsage(countries);
+            queryPlayground.NewTypeUsage(countries);
+            queryPlayground.LetUsage();
 
-            // new MethodSyntax().Usage();
-            // QueryHighScores(1, 90);
-            // new QueryReturn().Usage();
-            // GroupBySingleProperty();
-            // GroupBySubstring();
-            // GroupByRange();
-            // QueryNestedGroups();
-            // new FilterQuery().Usage(_studentsList.Students);
+            new MethodSyntax().Usage();
+            QueryHighScores(1, 90);
+            new QueryReturn().Usage();
+            GroupBySingleProperty();
+            GroupBySubstring();
+            GroupByRange();
+            QueryNestedGroups();
+            new FilterQuery().Usage(_studentsList.Students);
             new JoinQuery().Usage();
         }
 

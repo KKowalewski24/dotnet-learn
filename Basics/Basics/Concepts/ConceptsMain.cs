@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Basics.Concepts.Delegates;
 using Basics.Concepts.Linq;
 using SampleLibrary;
 
@@ -12,17 +13,17 @@ namespace Basics.Concepts {
 
         /*------------------------ METHODS REGION ------------------------*/
         public void Main() {
-            // LibraryUsage();
-            // PartialUsage();
-            // TupleUsage();
-            // InterfaceDefaultImplUsage();
-            // YieldUsage().ToList().ForEach((it) => Console.Write(it + " "));
-            // GetSingleDigitNumbers().ToList().ForEach((it) => { Console.Write($"{it} "); });
-            // PropertiesUsage();
-            // Discard discard = new Discard();
-            // discard.DisplayTuple();
-            // new DelegatesMain().Main();
-            // new LinqMain().Main();
+            LibraryUsage();
+            PartialUsage();
+            TupleUsage();
+            InterfaceDefaultImplUsage();
+            YieldUsage().ToList().ForEach((it) => Console.Write(it + " "));
+            GetSingleDigitNumbers().ToList().ForEach((it) => { Console.Write($"{it} "); });
+            PropertiesUsage();
+            Discard discard = new Discard();
+            discard.DisplayTuple();
+            new DelegatesMain().Main();
+            new LinqMain().Main();
         }
 
         private void PropertiesUsage() {

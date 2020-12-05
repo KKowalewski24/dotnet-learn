@@ -39,7 +39,7 @@ namespace Basics.Concepts.Linq {
             concatenation.Where((number) => number < 15).ToList().ForEach((number) => {
                 Console.WriteLine($"number: {number}");
             });
-            
+
             Console.WriteLine("------------------------");
         }
 

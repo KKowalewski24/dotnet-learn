@@ -32,7 +32,7 @@ namespace Basics.Tutorials {
                 new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json")
             );
             _httpClient.DefaultRequestHeaders
-                       .Add("User-Agent", ".NET Foundation Repository Reporter");
+                .Add("User-Agent", ".NET Foundation Repository Reporter");
 
             Task<Stream> stringTask = _httpClient
                 .GetStreamAsync("https://api.github.com/orgs/dotnet/repos");

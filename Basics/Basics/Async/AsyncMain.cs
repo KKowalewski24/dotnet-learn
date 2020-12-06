@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -10,10 +11,13 @@ namespace Basics.Async {
     public class AsyncMain {
 
         /*------------------------ FIELDS REGION ------------------------*/
+        const string simpleTxt = "simple.txt";
+
         private readonly HttpClient _httpClient = new HttpClient();
 
         /*------------------------ METHODS REGION ------------------------*/
         public async Task Main() {
+
             await IoBound();
             await Task.Run(DoSthLong);
             IList<int> userIds = new List<int> {1, 2, 3, 4};
@@ -22,6 +26,9 @@ namespace Basics.Async {
                 Console.WriteLine(user);
             }
 
+            await SimpleWriteAsync();
+            await SimpleReadAsync();
+            await SimpleParallelWriteAsync();
         }
 
         private async Task IoBound() {
@@ -55,8 +62,37 @@ namespace Basics.Async {
         }
 
         private async Task<User> GetUserAsync(int userId) {
-            Task.Delay(500);
+            await Task.Delay(500);
             return new User("John", 24);
+        }
+
+        private async Task SimpleWriteAsync() {
+            await File.AppendAllTextAsync(simpleTxt, "Sample text to save\n");
+        }
+
+        private async Task SimpleReadAsync() {
+            string text = await File.ReadAllTextAsync(simpleTxt);
+            Console.WriteLine(text);
+        }
+
+        private async Task SimpleParallelWriteAsync() {
+            const string tempDir = "tempDir";
+            if (Directory.Exists(tempDir)) {
+                Directory.Delete(tempDir, true);
+            }
+
+            string folderName = Directory.CreateDirectory(tempDir).Name;
+            IList<Task> writeTasks = new List<Task>();
+
+            for (int index = 11; index <= 20; ++index) {
+                string fileName = $"file-{index:00}.txt";
+                string filePath = $"{folderName}/{fileName}";
+                string text = $"In file {index}{Environment.NewLine}";
+
+                writeTasks.Add(File.WriteAllTextAsync(filePath, text));
+            }
+
+            await Task.WhenAll(writeTasks);
         }
 
     }

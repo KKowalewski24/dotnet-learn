@@ -19,7 +19,10 @@ namespace Basics.Async {
         public async Task Main() {
 
             await IoBound();
-            await Task.Run(DoSthLong);
+            Task task = Task.Run(DoSthLong);
+            Console.WriteLine("abc");
+            await task;
+
             IList<int> userIds = new List<int> {1, 2, 3, 4};
 
             foreach (var user in await AsyncLinq(userIds)) {
@@ -46,9 +49,9 @@ namespace Basics.Async {
             Console.WriteLine(result.Length);
         }
 
-        private void DoSthLong() {
+        private async Task DoSthLong() {
             Console.WriteLine("begin");
-            Task.Delay(3000);
+            await Task.Delay(3000);
             Console.WriteLine("end");
         }
 

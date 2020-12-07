@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Basics.ProgrammingGuide.CustomCollection;
+using Basics.ProgrammingGuide.Iterators;
 
 namespace Basics.ProgrammingGuide {
 
@@ -18,6 +20,7 @@ namespace Basics.ProgrammingGuide {
             PrintAuthorInfo(typeof(SampleClass));
             SortCarsExample();
             ListColors();
+            IteratorsUsage();
         }
 
         private void WriteReadToFile() {
@@ -79,6 +82,26 @@ namespace Basics.ProgrammingGuide {
 
             foreach (Color color in colors) {
                 Console.Write(color.Name + " ");
+            }
+
+            Console.WriteLine();
+        }
+
+        private void IteratorsUsage() {
+            Zoo zoo = new Zoo();
+            zoo.AddMammal("Whale");
+            zoo.AddMammal("Rhinoceros");
+            zoo.AddBird("Penguin");
+            zoo.AddBird("Warbler");
+
+            PrintAnimalName(zoo);
+            PrintAnimalName(zoo.Birds);
+            PrintAnimalName(zoo.Mammals);
+        }
+
+        private void PrintAnimalName(IEnumerable zooItems) {
+            foreach (string name in zooItems) {
+                Console.Write(name + " ");
             }
 
             Console.WriteLine();

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using Basics.ProgrammingGuide.CustomCollection;
 
 namespace Basics.ProgrammingGuide {
 
@@ -16,6 +17,7 @@ namespace Basics.ProgrammingGuide {
             WriteReadToFile();
             PrintAuthorInfo(typeof(SampleClass));
             SortCarsExample();
+            ListColors();
         }
 
         private void WriteReadToFile() {
@@ -58,7 +60,7 @@ namespace Basics.ProgrammingGuide {
                 new Car("car6", "red", 60),
                 new Car("car7", "green", 50)
             };
-            
+
             PrintCars(cars);
             cars.Sort();
             PrintCars(cars);
@@ -70,6 +72,16 @@ namespace Basics.ProgrammingGuide {
             }
 
             Console.WriteLine("------------------------");
+        }
+
+        private void ListColors() {
+            AllColors colors = new AllColors();
+
+            foreach (Color color in colors) {
+                Console.Write(color.Name + " ");
+            }
+
+            Console.WriteLine();
         }
 
     }

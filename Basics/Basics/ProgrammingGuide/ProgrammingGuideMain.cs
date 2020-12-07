@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -14,6 +15,7 @@ namespace Basics.ProgrammingGuide {
         public void Main() {
             WriteReadToFile();
             PrintAuthorInfo(typeof(SampleClass));
+            SortCarsExample();
         }
 
         private void WriteReadToFile() {
@@ -44,7 +46,30 @@ namespace Basics.ProgrammingGuide {
                     Console.WriteLine($"{authorAttribute.Name}, {authorAttribute.Version}");
                 }
             });
+        }
 
+        private void SortCarsExample() {
+            List<Car> cars = new List<Car> {
+                new Car("car1", "blue", 20),
+                new Car("car2", "red", 50),
+                new Car("car3", "green", 10),
+                new Car("car4", "blue", 50),
+                new Car("car5", "blue", 30),
+                new Car("car6", "red", 60),
+                new Car("car7", "green", 50)
+            };
+            
+            PrintCars(cars);
+            cars.Sort();
+            PrintCars(cars);
+        }
+
+        private void PrintCars(List<Car> cars) {
+            foreach (Car car in cars) {
+                Console.WriteLine(car);
+            }
+
+            Console.WriteLine("------------------------");
         }
 
     }

@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Basics.ProgrammingGuide.CustomCollection;
 using Basics.ProgrammingGuide.Iterators;
+using Basics.ProgrammingGuide.Linq;
 
 namespace Basics.ProgrammingGuide {
 
@@ -21,6 +22,7 @@ namespace Basics.ProgrammingGuide {
             SortCarsExample();
             ListColors();
             IteratorsUsage();
+            new LinqUsage().Main();
         }
 
         private void WriteReadToFile() {

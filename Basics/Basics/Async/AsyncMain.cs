@@ -23,7 +23,7 @@ namespace Basics.Async {
             Console.WriteLine("abc");
             await task;
 
-            IList<int> userIds = new List<int> {1, 2, 3, 4};
+            IList<int> userIds = new List<int> { 1, 2, 3, 4 };
 
             foreach (var user in await AsyncLinq(userIds)) {
                 Console.WriteLine(user);

@@ -26,13 +26,13 @@ namespace Basics.Concepts.Linq {
             Pet bluemoon = new Pet("Blue Moon", rui);
             Pet daisy = new Pet("Daisy", magnus);
 
-            List<Person> people = new List<Person> {magnus, terry, charlotte, arlene, rui};
-            List<Pet> pets = new List<Pet> {barley, boots, whiskers, bluemoon, daisy};
+            List<Person> people = new List<Person> { magnus, terry, charlotte, arlene, rui };
+            List<Pet> pets = new List<Pet> { barley, boots, whiskers, bluemoon, daisy };
 
             var personPet =
                 from person in people
                 join pet in pets on person equals pet.Owner
-                select new {OwnerName = person.LastName, PetName = pet.Name};
+                select new { OwnerName = person.LastName, PetName = pet.Name };
 
             foreach (var item in personPet) {
                 Console.WriteLine($"\"{item.OwnerName}\" is owned by {item.PetName}");

@@ -67,7 +67,7 @@ namespace Basics.Concepts.Linq {
         public void NewTypeUsage(IEnumerable<Country> countries) {
             var queryNameAndPostalCode =
                 from country in countries
-                select new {country.Name, country.PostalCode};
+                select new { country.Name, country.PostalCode };
 
             queryNameAndPostalCode.ToList().ForEach((item) => {
                 Console.WriteLine($"Name: {item.Name}, Code: {item.PostalCode}");

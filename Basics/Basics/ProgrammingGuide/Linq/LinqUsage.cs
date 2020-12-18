@@ -41,7 +41,7 @@ namespace Basics.ProgrammingGuide.Linq {
             new Teacher {First = "Michiyo", Last = "Sato", ID = 972, City = "Tacoma"}
         };
 
-        private readonly double[] _radii = {1, 2, 3};
+        private readonly double[] _radii = { 1, 2, 3 };
 
         /*------------------------ METHODS REGION ------------------------*/
         public void Main() {

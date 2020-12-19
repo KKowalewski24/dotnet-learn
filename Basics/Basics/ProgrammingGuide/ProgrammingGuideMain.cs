@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Basics.ProgrammingGuide.CustomCollection;
 using Basics.ProgrammingGuide.Iterators;
 using Basics.ProgrammingGuide.Linq;
+using Basics.ProgrammingGuide.Serialization;
 
 namespace Basics.ProgrammingGuide {
 
@@ -26,6 +27,7 @@ namespace Basics.ProgrammingGuide {
             new SetOperations().Main();
             new QuantifierOperations().Main();
             new SelectMany().Main();
+            new XmlSerializator().Main();
         }
 
         private void WriteReadToFile() {
@@ -44,7 +46,7 @@ namespace Basics.ProgrammingGuide {
 
             Person person2;
             using (FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read)) {
-                person2 = (Person)formatter.Deserialize(stream);
+                person2 = (Person) formatter.Deserialize(stream);
             }
 
             Console.WriteLine(person2);

@@ -5,11 +5,14 @@ namespace Basics.ProgrammingGuide {
     public class Car : IComparable<Car> {
 
         /*------------------------ FIELDS REGION ------------------------*/
-        public string Name { get; private set; }
-        public string Color { get; private set; }
-        public int Speed { get; private set; }
+        public string Name { get; set; }
+        public string Color { get; set; }
+        public int Speed { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
+        public Car() {
+        }
+
         public Car(string name, string color, int speed) {
             Name = name;
             Color = color;

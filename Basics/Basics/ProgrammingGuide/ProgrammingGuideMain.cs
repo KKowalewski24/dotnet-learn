@@ -25,6 +25,7 @@ namespace Basics.ProgrammingGuide {
             new LinqUsage().Main();
             new SetOperations().Main();
             new QuantifierOperations().Main();
+            new SelectMany().Main();
         }
 
         private void WriteReadToFile() {
@@ -43,7 +44,7 @@ namespace Basics.ProgrammingGuide {
 
             Person person2;
             using (FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read)) {
-                person2 = (Person) formatter.Deserialize(stream);
+                person2 = (Person)formatter.Deserialize(stream);
             }
 
             Console.WriteLine(person2);

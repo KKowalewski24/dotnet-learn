@@ -49,6 +49,8 @@ namespace Basics.ProgrammingGuide.Linq {
             XmlFromSource();
 
             CalculateInQuery();
+            WhereUsage();
+            SelectUsage();
         }
 
         private void CalculateInQuery() {
@@ -90,6 +92,37 @@ namespace Basics.ProgrammingGuide.Linq {
             );
 
             Console.WriteLine(studentToXml);
+        }
+
+        private void WhereUsage() {
+            IEnumerable<int> data = PrepareData();
+            IEnumerable<int> filteredData =
+                from item in data
+                where item > 80
+                select item;
+
+            foreach (int item in filteredData) {
+                Console.Write(item + " ");
+            }
+
+            Console.WriteLine();
+        }
+
+        private IEnumerable<int> PrepareData() {
+            const int numberOfItems = 100;
+            for (int i = 0; i < numberOfItems; i++) {
+                yield return i;
+            }
+        }
+
+        private void SelectUsage() {
+            var result =
+                from student in _students
+                select new { FirstName = student.First, City = student.City };
+
+            foreach (var item in result) {
+                Console.WriteLine(item.FirstName + " " + item.City);
+            }
         }
 
     }

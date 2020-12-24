@@ -8,7 +8,7 @@ namespace Basics.ProgrammingGuide.Serialization {
 
         /*------------------------ FIELDS REGION ------------------------*/
         private const string XmlfileName = "xmlFile.xml";
-        
+
         private readonly XmlSerializer _serializer = new XmlSerializer(typeof(Car));
 
         /*------------------------ METHODS REGION ------------------------*/
@@ -26,7 +26,7 @@ namespace Basics.ProgrammingGuide.Serialization {
 
         private void Read() {
             using (StreamReader streamReader = new StreamReader(XmlfileName)) {
-                Car car = (Car) _serializer.Deserialize(streamReader);
+                Car car = (Car)_serializer.Deserialize(streamReader);
                 Console.WriteLine(car);
             }
         }

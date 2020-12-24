@@ -40,13 +40,13 @@ namespace Basics.Concepts.Linq {
             Pet bluemoon = new Pet("Blue Moon", rui);
             Pet daisy = new Pet("Daisy", magnus);
 
-            List<Person> people = new List<Person> {magnus, terry, charlotte, arlene, rui};
-            List<Pet> pets = new List<Pet> {barley, boots, whiskers, bluemoon, daisy};
+            List<Person> people = new List<Person> { magnus, terry, charlotte, arlene, rui };
+            List<Pet> pets = new List<Pet> { barley, boots, whiskers, bluemoon, daisy };
 
             var personPet =
                 from person in people
                 join pet in pets on person equals pet.Owner
-                select new {OwnerName = person.LastName, PetName = pet.Name};
+                select new { OwnerName = person.LastName, PetName = pet.Name };
 
             foreach (var item in personPet) {
                 Console.WriteLine($"\"{item.OwnerName}\" is owned by {item.PetName}");
@@ -71,12 +71,12 @@ namespace Basics.Concepts.Linq {
             var join1 =
                 from product in products
                 join category in categories on product.CategoryId equals category.Id
-                select new {product.Name, category.CategoryName};
+                select new { product.Name, category.CategoryName };
 
             var join2 =
                 from category1 in categories
                 join product1 in products on category1.Id equals product1.CategoryId
-                select new {product1.Name, category1.CategoryName};
+                select new { product1.Name, category1.CategoryName };
 
             foreach (var item in join1) {
                 Console.WriteLine(item.Name + ", " + item.CategoryName);

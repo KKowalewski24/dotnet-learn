@@ -12,10 +12,10 @@ namespace Basics.Concepts.Linq {
         /*------------------------ METHODS REGION ------------------------*/
         public void Main() {
             const int scoreThreshold = 80;
-            int[] scores = {97, 92, 81, 60};
+            int[] scores = { 97, 92, 81, 60 };
 
-            int[] numbers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-            string[] words = {"a", "b", "c", "d", "e", "f", "g", "h", "i"};
+            int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            string[] words = { "a", "b", "c", "d", "e", "f", "g", "h", "i" };
 
             IList<Country> countries = new List<Country> {
                 new Country("Germany", 101),
@@ -51,8 +51,8 @@ namespace Basics.Concepts.Linq {
                 group student by student.Year
                 into yearGroup
                 from lastNameGroup in
-                    from student in yearGroup
-                    group student by student.LastName
+                from student in yearGroup
+                group student by student.LastName
                 group lastNameGroup by yearGroup.Key;
 
             foreach (IGrouping<GradeLevel, IGrouping<string, Student>> outerGroup in
@@ -121,7 +121,7 @@ namespace Basics.Concepts.Linq {
             var highScores =
                 from student in _studentsList.Students
                 where student.ExamScores[examNumber] > score
-                select new {Name = student.FirstName, Score = student.ExamScores[examNumber]};
+                select new { Name = student.FirstName, Score = student.ExamScores[examNumber] };
 
             foreach (var item in highScores) {
                 Console.WriteLine($"{item.Name,-15}{item.Score}");
@@ -130,7 +130,7 @@ namespace Basics.Concepts.Linq {
 
         private int GetPercentile(Student student) {
             double average = student.ExamScores.Average();
-            return average > 0 ? (int) average / 10 : 0;
+            return average > 0 ? (int)average / 10 : 0;
         }
 
     }

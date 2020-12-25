@@ -10,7 +10,7 @@ namespace Basics.Concepts.Linq {
 
         /*------------------------ METHODS REGION ------------------------*/
         public void Usage(IList<Student> students) {
-            string[] ids = {"111", "114", "112"};
+            string[] ids = { "111", "114", "112" };
 
             QueryByID(students, ids);
             QueryByYear(students, GradeLevel.SecondYear);

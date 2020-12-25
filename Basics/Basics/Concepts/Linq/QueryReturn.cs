@@ -10,7 +10,7 @@ namespace Basics.Concepts.Linq {
 
         /*------------------------ METHODS REGION ------------------------*/
         public void Usage() {
-            int[] nums = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+            int[] nums = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             Console.WriteLine("Results of executing myQuery1:");
             IEnumerable<string> myQuery1 = QueryMethod1(ref nums);
 

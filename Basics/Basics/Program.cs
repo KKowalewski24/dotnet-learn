@@ -2,6 +2,7 @@
 using Basics.Async;
 using Basics.Concepts;
 using Basics.GetStarted;
+using Basics.ProgrammingGuide;
 using Basics.Tutorials;
 
 namespace Basics {
@@ -13,6 +14,7 @@ namespace Basics {
             await new TutorialsMain().Main();
             new ConceptsMain().Main();
             await new AsyncMain().Main();
+            new ProgrammingGuideMain().Main();
         }
 
     }

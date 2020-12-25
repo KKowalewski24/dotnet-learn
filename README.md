@@ -1,5 +1,6 @@
 # dotnet-learn
 
+## .NET CLI Usage
 ### Creating New Project
 * Single solution in git repository
 ```
@@ -14,3 +15,6 @@ mkdir $NAME_SLN$ && cd $NAME_SLN$ && dotnet new sln -n $NAME_SLN$ && dotnet new 
 ```
 dotnet new $TEMPLATE$ -n $NAME_PROJ$ && dotnet sln add $NAME_PROJ$
 ```
+
+### Projects in repository
+* [Basics](https://docs.microsoft.com/en-us/dotnet/csharp/)

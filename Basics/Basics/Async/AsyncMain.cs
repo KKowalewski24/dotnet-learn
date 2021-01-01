@@ -11,13 +11,12 @@ namespace Basics.Async {
     public class AsyncMain {
 
         /*------------------------ FIELDS REGION ------------------------*/
-        const string simpleTxt = "simple.txt";
+        private const string SimpleTxt = "simple.txt";
 
         private readonly HttpClient _httpClient = new HttpClient();
 
         /*------------------------ METHODS REGION ------------------------*/
         public async Task Main() {
-
             await IoBound();
             Task task = Task.Run(DoSthLong);
             Console.WriteLine("abc");
@@ -32,6 +31,36 @@ namespace Basics.Async {
             await SimpleWriteAsync();
             await SimpleReadAsync();
             await SimpleParallelWriteAsync();
+
+            Console.WriteLine("Started");
+            Task<string> firstTask = Task.Run(FirstLongOperation);
+            Task<string> secondTask = Task.Run(SecondLongOperation);
+            Task<string> thirdTask = Task.Run(ThirdLongOperation);
+            Console.WriteLine("Waiting to finish....");
+            Console.WriteLine(await firstTask);
+            Console.WriteLine(await secondTask);
+            Console.WriteLine(await thirdTask);
+        }
+
+        private async Task<string> FirstLongOperation() {
+            Console.WriteLine("FirstStarted");
+            await Task.Delay(10000);
+            Console.WriteLine("FirstFinished");
+            return "First";
+        }
+
+        private async Task<string> SecondLongOperation() {
+            Console.WriteLine("SecondStarted");
+            await Task.Delay(2000);
+            Console.WriteLine("SecondFinished");
+            return "Second";
+        }
+
+        private async Task<string> ThirdLongOperation() {
+            Console.WriteLine("ThirdStarted");
+            await Task.Delay(3000);
+            Console.WriteLine("ThirdFinished");
+            return "Third";
         }
 
         private async Task IoBound() {
@@ -70,11 +99,11 @@ namespace Basics.Async {
         }
 
         private async Task SimpleWriteAsync() {
-            await File.AppendAllTextAsync(simpleTxt, "Sample text to save\n");
+            await File.AppendAllTextAsync(SimpleTxt, "Sample text to save\n");
         }
 
         private async Task SimpleReadAsync() {
-            string text = await File.ReadAllTextAsync(simpleTxt);
+            string text = await File.ReadAllTextAsync(SimpleTxt);
             Console.WriteLine(text);
         }
 

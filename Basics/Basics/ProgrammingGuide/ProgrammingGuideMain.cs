@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Basics.ProgrammingGuide.CustomCollection;
 using Basics.ProgrammingGuide.Delegates;
+using Basics.ProgrammingGuide.Generics;
 using Basics.ProgrammingGuide.Iterators;
 using Basics.ProgrammingGuide.Linq;
 using Basics.ProgrammingGuide.Properties;
@@ -32,6 +33,7 @@ namespace Basics.ProgrammingGuide {
             new XmlSerializator().Main();
             new PropertiesMain().Main();
             new DelegatesMain().Main();
+            new GenericsMain().Main();
         }
 
         private void WriteReadToFile() {

@@ -17,15 +17,15 @@ namespace Basics.ProgrammingGuide.FileOperations {
 
             FilesInfo(directoryPath);
             HardDriveInfo();
-            ReadAllLinesInAllFiles();
+            ReadAllLinesInAllFiles(directoryPath);
 
             foreach (string line in File.ReadLines(Directory.GetFiles(directoryPath)[0])) {
                 Console.WriteLine(line);
             }
         }
 
-        private void ReadAllLinesInAllFiles() {
-            foreach (string file in Directory.GetFiles("ProgrammingGuide")) {
+        private void ReadAllLinesInAllFiles(string directoryPath) {
+            foreach (string file in Directory.GetFiles(directoryPath)) {
                 foreach (string line in File.ReadAllLines(file)) {
                     Console.WriteLine(line);
                 }

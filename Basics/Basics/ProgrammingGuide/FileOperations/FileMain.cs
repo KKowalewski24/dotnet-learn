@@ -15,9 +15,9 @@ namespace Basics.ProgrammingGuide.FileOperations {
                 "FileOperations"
             );
 
-            // FilesInfo(directoryPath);
-            // HardDriveInfo();
-            // ReadAllLinesInAllFiles();
+            FilesInfo(directoryPath);
+            HardDriveInfo();
+            ReadAllLinesInAllFiles();
 
             foreach (string line in File.ReadLines(Directory.GetFiles(directoryPath)[0])) {
                 Console.WriteLine(line);

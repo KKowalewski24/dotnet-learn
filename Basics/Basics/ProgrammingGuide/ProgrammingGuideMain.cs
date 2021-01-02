@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Basics.ProgrammingGuide.CustomCollection;
 using Basics.ProgrammingGuide.Delegates;
+using Basics.ProgrammingGuide.FileOperations;
 using Basics.ProgrammingGuide.Generics;
 using Basics.ProgrammingGuide.Iterators;
 using Basics.ProgrammingGuide.Linq;
@@ -34,6 +35,7 @@ namespace Basics.ProgrammingGuide {
             new PropertiesMain().Main();
             new DelegatesMain().Main();
             new GenericsMain().Main();
+            new FileMain().Main();
         }
 
         private void WriteReadToFile() {

@@ -5,6 +5,9 @@ namespace EFCoreWebApi {
 
     public class Program {
 
+        /*------------------------ FIELDS REGION ------------------------*/
+
+        /*------------------------ METHODS REGION ------------------------*/
         public static void Main(string[] args) {
             CreateHostBuilder(args).Build().Run();
         }

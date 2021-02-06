@@ -11,9 +11,11 @@ namespace EFCoreBasicsConsole.EF {
 
         /*------------------------ METHODS REGION ------------------------*/
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            optionsBuilder.UseNpgsql(
-                "Host=localhost;Database=EFCoreBasics;Username=postgres;Password=admin"
-            );
+            optionsBuilder.UseInMemoryDatabase("Abc");
+
+            // optionsBuilder.UseNpgsql(
+            //     "Host=localhost;Database=EFCoreBasics;Username=postgres;Password=admin"
+            // );
         }
 
     }

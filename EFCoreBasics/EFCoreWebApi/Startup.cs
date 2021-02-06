@@ -1,6 +1,5 @@
-using System.Collections.Generic;
 using EFCoreWebApi.EF;
-using EFCoreWebApi.Models;
+using EFCoreWebApi.Initializers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +25,7 @@ namespace EFCoreWebApi {
             services.AddDbContext<ApplicationDbContext>((options) => {
                 options.UseNpgsql(Configuration.GetValue<string>("ConnectionStrings"));
             });
+            services.AddScoped<IDataInitializer, DataInitializer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,20 +40,12 @@ namespace EFCoreWebApi {
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-            SeedData(context);
+            PrepareCleanDatabase(context);
         }
 
-        private void SeedData(ApplicationDbContext context) {
+        private void PrepareCleanDatabase(ApplicationDbContext context) {
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
-
-            Owner owner = new Owner("Kamil", "Kowalewski");
-            Pet dog = new Pet("Dog", owner);
-            Pet cat = new Pet("Cat", owner);
-            owner.AddPetsToOwner(new List<Pet> {dog, cat});
-            context.Pets.Add(dog);
-            context.Owners.Add(owner);
-            context.SaveChanges();
         }
 
     }

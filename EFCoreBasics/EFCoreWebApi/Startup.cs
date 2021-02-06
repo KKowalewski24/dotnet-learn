@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using EFCoreWebApi.EF;
+using EFCoreWebApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +29,8 @@ namespace EFCoreWebApi {
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+                              ApplicationDbContext context) {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
@@ -36,6 +39,21 @@ namespace EFCoreWebApi {
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+            SeedData(context);
+        }
+
+        private void SeedData(ApplicationDbContext context) {
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
+
+            Owner owner = new Owner("Kamil", "Kowalewski");
+            Pet dog = new Pet("Dog", owner);
+            Pet cat = new Pet("Cat", owner);
+            owner.AddPetsToOwner(new List<Pet> {dog, cat});
+            context.Pets.Add(dog);
+            context.Owners.Add(owner);
+            context.SaveChanges();
         }
 
     }

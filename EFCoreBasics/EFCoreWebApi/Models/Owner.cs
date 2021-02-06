@@ -5,7 +5,7 @@ namespace EFCoreWebApi.Models {
     public class Owner : BaseEntity {
 
         /*------------------------ FIELDS REGION ------------------------*/
-        private readonly IList<Pet> _pets = new List<Pet>();
+        private readonly List<Pet> _pets = new List<Pet>();
 
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
@@ -18,6 +18,14 @@ namespace EFCoreWebApi.Models {
         public Owner(string firstName, string lastName) {
             FirstName = firstName;
             LastName = lastName;
+        }
+
+        public void AddPetToOwner(Pet pet) {
+            _pets.Add(pet);
+        }
+
+        public void AddPetsToOwner(IEnumerable<Pet> pets) {
+            _pets.AddRange(pets);
         }
 
         public override string ToString() {

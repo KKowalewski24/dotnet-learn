@@ -22,10 +22,8 @@ namespace EFCoreWebApi {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             services.AddControllers();
-            services.AddDbContext<ApplicationDbContext>((options) => {
-                options.UseNpgsql(Configuration.GetValue<string>("ConnectionStrings"));
-            });
-            services.AddScoped<IDataInitializer, DataInitializer>();
+            SetupDatabase(services);
+            SetupScoped(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +39,16 @@ namespace EFCoreWebApi {
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
             PrepareCleanDatabase(context);
+        }
+
+        private void SetupDatabase(IServiceCollection services) {
+            services.AddDbContext<ApplicationDbContext>((options) => {
+                options.UseNpgsql(Configuration.GetValue<string>("ConnectionStrings"));
+            });
+        }
+
+        private void SetupScoped(IServiceCollection services) {
+            services.AddScoped<IDataInitializer, DataInitializer>();
         }
 
         private void PrepareCleanDatabase(ApplicationDbContext context) {

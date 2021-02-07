@@ -10,7 +10,7 @@ namespace EFCoreBasicsConsole.EF {
         public DbSet<Post> Posts { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        public ApplicationContext(DbContextOptions options)
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options) {
         }
 

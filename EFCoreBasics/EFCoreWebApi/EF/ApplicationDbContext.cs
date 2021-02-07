@@ -10,7 +10,7 @@ namespace EFCoreWebApi.EF {
         public DbSet<Owner> Owners { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        public ApplicationDbContext(DbContextOptions options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) {
         }
 

@@ -19,9 +19,9 @@ namespace EFCoreWebApi.Initializers {
             Owner owner = new Owner("Kamil", "Kowalewski");
             Pet dog = new Pet("Dog", owner);
             Pet cat = new Pet("Cat", owner);
-            owner.AddPetsToOwner(new List<Pet> {dog, cat});
-            _applicationDbContext.Pets.Add(dog);
-            _applicationDbContext.Owners.Add(owner);
+            owner.AddPetsToOwner(new List<Pet> { dog, cat });
+            await _applicationDbContext.Pets.AddAsync(dog);
+            await _applicationDbContext.Owners.AddAsync(owner);
             await _applicationDbContext.SaveChangesAsync();
         }
 

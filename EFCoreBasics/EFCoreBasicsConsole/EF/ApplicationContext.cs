@@ -10,11 +10,8 @@ namespace EFCoreBasicsConsole.EF {
         public DbSet<Post> Posts { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            optionsBuilder.UseNpgsql(
-                "Host=localhost;Database=EFCoreBasics;Username=postgres;Password=admin"
-            );
-
+        public ApplicationContext(DbContextOptions options)
+            : base(options) {
         }
 
     }

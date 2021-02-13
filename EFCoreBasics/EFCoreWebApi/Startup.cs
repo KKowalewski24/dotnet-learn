@@ -43,7 +43,7 @@ namespace EFCoreWebApi {
 
         private void SetupDatabase(IServiceCollection services) {
             services.AddDbContext<ApplicationDbContext>((options) => {
-                options.UseNpgsql(Configuration.GetValue<string>("ConnectionStrings"));
+                options.UseMySql(Configuration.GetValue<string>("ConnectionStrings"));
             });
         }
 

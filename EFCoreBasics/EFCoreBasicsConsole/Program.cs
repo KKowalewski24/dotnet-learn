@@ -11,7 +11,7 @@ namespace EFCoreBasicsConsole {
         /*------------------------ FIELDS REGION ------------------------*/
         private static readonly DbContextOptions<ApplicationContext> DbContextOptionsBuilder =
             new DbContextOptionsBuilder<ApplicationContext>()
-                .UseNpgsql("Host=localhost;Database=EFCoreBasics;Username=postgres;Password=admin")
+                .UseMySql("server=localhost;database=EFCore;user=root;password=admin")
                 .Options;
 
         /*------------------------ METHODS REGION ------------------------*/

@@ -59,8 +59,9 @@ csharp_preserve_single_line_statements = false
 csharp_prefer_static_local_function = false
 
 csharp_style_implicit_object_creation_when_type_is_apparent = false
-
-dotnet_diagnostic.IDE0001.severity = warning
+s
+dotnet_diagnostic.IDE0001.severity = none
+dotnet_diagnostic.IDE0059.severity = none
 dotnet_diagnostic.IDE0002.severity = warning
 dotnet_diagnostic.IDE0004.severity = warning
 dotnet_diagnostic.IDE0005.severity = warning

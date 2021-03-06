@@ -6,7 +6,7 @@ namespace EFCoreWebApi.Models {
 
         /*------------------------ FIELDS REGION ------------------------*/
         [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
         protected BaseEntity() {

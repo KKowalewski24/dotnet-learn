@@ -4,7 +4,7 @@
 
         /*------------------------ FIELDS REGION ------------------------*/
         public string Name { get; private set; }
-        public Owner I { get; private set; }
+        public Owner Owner { get; private set; }
 
         /*------------------------ METHODS REGION ------------------------*/
         protected Pet() {
@@ -16,13 +16,13 @@
 
         public Pet(string name, Owner i) {
             Name = name;
-            I = i;
+            Owner = i;
         }
 
         public override string ToString() {
             return $"{base.ToString()}, " +
                    $"{nameof(Name)}: {Name}, " +
-                   $"{nameof(I)}: {I}";
+                   $"{nameof(Owner)}: {Owner}";
         }
 
     }

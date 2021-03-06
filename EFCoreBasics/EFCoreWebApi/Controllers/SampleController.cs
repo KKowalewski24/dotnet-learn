@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using EFCoreWebApi.EF;
 using EFCoreWebApi.Initializers;
 using Microsoft.AspNetCore.Mvc;
 using static EFCoreWebApi.Constants.Constants;
@@ -13,13 +12,10 @@ namespace EFCoreWebApi.Controllers {
 
         /*------------------------ FIELDS REGION ------------------------*/
         private readonly IDataInitializer _dataInitializer;
-        private readonly ApplicationDbContext _applicationDbContext;
 
         /*------------------------ METHODS REGION ------------------------*/
-        public SampleController(IDataInitializer dataInitializer,
-                                ApplicationDbContext applicationDbContext) {
+        public SampleController(IDataInitializer dataInitializer) {
             _dataInitializer = dataInitializer;
-            _applicationDbContext = applicationDbContext;
         }
 
         [HttpGet(PATH_SEED_DATA)]

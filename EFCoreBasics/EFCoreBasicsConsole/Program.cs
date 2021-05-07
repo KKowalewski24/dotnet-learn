@@ -9,9 +9,11 @@ namespace EFCoreBasicsConsole {
     public class Program {
 
         /*------------------------ FIELDS REGION ------------------------*/
+        private const string DbName = "EFCore";
+        
         private static readonly DbContextOptions<ApplicationContext> DbContextOptionsBuilder =
             new DbContextOptionsBuilder<ApplicationContext>()
-                .UseMySql("server=localhost;database=EFCore;user=root;password=admin")
+                .UseNpgsql($"Host=localhost;Database={DbName};Username=postgres;Password=admin")
                 .Options;
 
         /*------------------------ METHODS REGION ------------------------*/
